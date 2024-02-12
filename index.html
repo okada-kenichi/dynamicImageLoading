@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>dynamicImageLoader</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <img id="image_area"></img> <!-- 読み込んだ画像を表示させるimgタグに任意のidを指定 -->
+        <button data-image_url='./images/a.jpg'>load image A</button> <!-- data-image_url属性に表示させたい画像のpath -->
+        <button data-image_url='./images/b.jpg'>load image B</button>
+        <button data-image_url='./images/c.jpg'>load image C</button>
+        <script type="text/javascript" src="./dynamicImageLoader.js"></script> <!-- DOM取得のためスクリプトは後から読み込む -->
+        <script>
+            function callback(data) { //コールバック関数(省略可):dynamicImageLoader()より先に記述する
+                console.log('callback function executed',data);
+            }
+        </script>
+        <script>dynamicImageLoader("image_area",callback)</script><!-- 第一引数に表示用imgタグのid、第二引数にコールバック関数（省略可） -->
+    </body>
+</html>
